@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace Note.MVC6.Controllers
@@ -24,6 +25,7 @@ namespace Note.MVC6.Controllers
         public IActionResult Index()
         {
             var List = _noticeBll.GetNoticeList();
+            _logger.LogTrace($"홈화면 : {MethodBase.GetCurrentMethod().Name}");
             return View();
         }
 
